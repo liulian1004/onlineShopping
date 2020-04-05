@@ -1,4 +1,3 @@
-
 package onlineShop;
 
 import javax.sql.DataSource;
@@ -17,6 +16,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private DataSource dataSource;
 
 	protected void configure(HttpSecurity http) throws Exception {
+		//admin和用户的权限
+		//* 只能match一个层级
+		//** match多个层级
 		http.csrf().disable().formLogin().loginPage("/login")
 
 				.and().authorizeRequests().antMatchers("/cart/**").hasAuthority("ROLE_USER").antMatchers("/get*/**")
@@ -27,6 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("admin@gmail.com").password("123").authorities("ROLE_ADMIN");
+		//可以在这里继续加admin用户
+		//或者在db里面直接更改现有user权限
 
 		auth.jdbcAuthentication().dataSource(dataSource)
 				.usersByUsernameQuery("SELECT emailId, password, enabled FROM users WHERE emailId=?")
