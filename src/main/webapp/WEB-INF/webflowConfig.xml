@@ -9,7 +9,8 @@
        http://www.springframework.org/schema/security/spring-security.xsd       
        http://www.springframework.org/schema/webflow-config 
        http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
-
+<!-- 用于发送请求给dispatcherServlet --> 
+<!-- flowExecutor是一个class, 具体说明怎么执行这些flow -->
 	<bean id="flowHandlerMapping"
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry"></property>

@@ -6,7 +6,7 @@
 		<section>
 			<div class="jumbotron">
 				<div class="container">
-					<h1>Invalid Cart!</h1>
+					<h1>Please add products into cart!</h1>
 				</div>
 			</div>
 		</section>

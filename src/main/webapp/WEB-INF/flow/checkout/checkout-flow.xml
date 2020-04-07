@@ -8,6 +8,9 @@
     
     <action-state id="addCartToOrder">
         <evaluate expression="cartDao.validate(requestParameters.cartId)" result="order.cart" />
+        <!-- 以下两个表示如果是invalid，跳转到哪里-->
+         <!-- 如果正常就跳转到其他页面-->
+          <!-- 这两句前后顺序无所谓-->
         <transition to="invalidCartWarning" on-exception="java.io.IOException" />
         <transition to="collectCustomerInfo" />
     </action-state>

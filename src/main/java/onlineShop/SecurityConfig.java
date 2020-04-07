@@ -19,6 +19,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//admin和用户的权限
 		//* 只能match一个层级
 		//** match多个层级
+		
+		//csrf:跨域请求伪造（cross-site request forgery) 
+		//这种方法用来防止csrf的攻击，本质是发一个token给你，但是不把这个信息保存在cookie里面
+		//这样钓鱼网站就没有办法通过伪造请求来拿到cookie里面的信息
+		//本项目不涉及这个问题，所以把默认的csrf()disable掉
 		http.csrf().disable().formLogin().loginPage("/login")
 
 				.and().authorizeRequests().antMatchers("/cart/**").hasAuthority("ROLE_USER").antMatchers("/get*/**")
