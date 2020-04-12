@@ -55,7 +55,7 @@ public class ProductController {
 		if (image != null && !image.isEmpty()) {
 			// Mac
 			// Path path = Paths.get("/Users/xxx/products/" + product.getId() + ".jpg");
-			Path path = Paths.get("/Users/xxx/products/" + product.getId() + ".jpg");
+			Path path = Paths.get("/Users/liulian/products/" + product.getId() + ".jpg");
 
 			// windows
 //			Path path = Paths.get("C:\\products\\" + product.getId() + ".jpg");
@@ -71,9 +71,9 @@ public class ProductController {
 	
 	@RequestMapping(value = "/admin/delete/{productId}")
 	public String deleteProduct(@PathVariable(value = "productId") int productId) {
-		// for MAC : Path path = Paths.get("/Users/xxx/products/" + productId + ".jpg");
+		Path path = Paths.get("/Users/liulian/products/" + productId + ".jpg");
 		// For windows
-		Path path = Paths.get("C:\\products\\" + productId + ".jpg");
+		//Path path = Paths.get("C:\\products\\" + productId + ".jpg");
 
 		if (Files.exists(path)) {
 			try {
