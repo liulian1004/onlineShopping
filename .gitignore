@@ -40,3 +40,5 @@ secrets.yml
 .gradletasknamecache
 .sts4-cache
 *.mov
+src/main/java/onlineShop/ApplicationConfig.java
+src/main/java/onlineShop/SecurityConfig.java
